@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 enum MediaType { image, video }
 
 class ApodModel {
@@ -18,6 +20,8 @@ class ApodModel {
     this.hdurl,
     this.copyRight,
   });
+
+  String get formattedDate => DateFormat.yMMMd().format(date);
 
   factory ApodModel.fromJson(Map<String, dynamic> json) {
     return ApodModel(
