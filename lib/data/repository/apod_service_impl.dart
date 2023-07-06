@@ -7,7 +7,7 @@ import 'package:nasa_workshop/domain/repository/apod_service.dart';
 class ApodServiceImpl implements ApodService {
   late final Dio _dio;
 
-  ApodServiceImpl() {
+  ApodServiceImpl(Dio dio) {
     _dio = Dio();
   }
 
