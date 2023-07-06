@@ -5,11 +5,23 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-          child: Center(
-        child: Text('home_screen'),
-      )),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'lib/assets/images/nasa_logo.png',
+              width: 300,
+            ),
+            const SizedBox(height: 25),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Start'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
