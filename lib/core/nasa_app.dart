@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:nasa_workshop/presentation/home/page/home_screen.dart';
+import 'package:nasa_workshop/core/constants/text_constants.dart';
+import 'package:nasa_workshop/presentation/features/home/page/home_page.dart';
 
 class NasaApp extends StatelessWidget {
   const NasaApp({super.key});
@@ -7,11 +8,11 @@ class NasaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'NASA Test Workshop',
+      title: TextConstants.appNameLabel,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: const HomePage(),
     );
   }
 }

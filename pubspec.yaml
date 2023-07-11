@@ -40,6 +40,11 @@ dependencies:
   cached_network_image: ^3.2.3
   url_launcher: ^6.1.11
   path_provider: ^2.0.15
+  provider: ^6.0.5
+  mockito: ^5.4.2
+  build_runner: ^2.4.6
+  gap: ^3.0.1
+  connectivity_plus: ^4.0.1
 
 dev_dependencies:
   flutter_test:
@@ -64,7 +69,9 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/assets/images/nasa_logo.png
+    - assets/images/nasa_logo.png
+    - assets/images/icon_video.png
+    - assets/images/img_video.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

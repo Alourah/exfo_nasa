@@ -1,15 +1,15 @@
 import 'package:dio/dio.dart';
 import 'package:intl/intl.dart';
 import 'package:nasa_workshop/core/constants/api_constants.dart';
+import 'package:nasa_workshop/core/constants/text_constants.dart';
 import 'package:nasa_workshop/data/model/apod_model.dart';
 import 'package:nasa_workshop/domain/repository/apod_service.dart';
 
 class ApodServiceImpl implements ApodService {
-  late final Dio _dio;
-
   ApodServiceImpl(Dio dio) {
     _dio = Dio();
   }
+  late final Dio _dio;
 
   @override
   Future<List<ApodModel>> getRangeOfApod(DateTime startDate, DateTime endDate) async {
@@ -28,13 +28,12 @@ class ApodServiceImpl implements ApodService {
 
       if (response.statusCode == 200) {
         final List<dynamic> json = response.data;
-        final result = json.map((apod) => ApodModel.fromJson(apod)).toList();
-        return result;
+        return json.map((apod) => ApodModel.fromJson(apod)).toList();
       } else {
-        throw Exception('API request failed with status code: ${response.statusCode}');
+        throw Exception('${TextConstants.apiRequestFailCodeException} ${response.statusCode}');
       }
     } catch (error) {
-      throw Exception('Failed to fetch APOD data: $error');
+      throw Exception('${TextConstants.failedToFetchApodDataException} $error');
     }
   }
 }

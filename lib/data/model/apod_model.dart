@@ -3,14 +3,6 @@ import 'package:intl/intl.dart';
 enum MediaType { image, video }
 
 class ApodModel {
-  final DateTime date;
-  final String explanation;
-  final MediaType mediaType;
-  final String title;
-  final String url;
-  final String? hdurl;
-  final String? copyRight;
-
   ApodModel({
     required this.date,
     required this.explanation,
@@ -21,7 +13,17 @@ class ApodModel {
     this.copyRight,
   });
 
+  final DateTime date;
+  final String explanation;
+  final MediaType mediaType;
+  final String title;
+  final String url;
+  final String? hdurl;
+  final String? copyRight;
+
   String get formattedDate => DateFormat.yMMMd().format(date);
+
+  bool get isAnImage => mediaType == MediaType.image ? true : false;
 
   factory ApodModel.fromJson(Map<String, dynamic> json) {
     return ApodModel(
