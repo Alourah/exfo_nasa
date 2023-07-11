@@ -13,6 +13,7 @@ class ApodProvider extends ChangeNotifier {
   final ScrollController scrollController = ScrollController();
   List<ApodModel> _apodList = [];
   bool isLoading = true;
+  bool isfailed = false;
   bool isFetchingMore = false;
   bool _hasReachedEnd = false;
 
@@ -22,6 +23,7 @@ class ApodProvider extends ChangeNotifier {
   Future<void> fetchApodData() async {
     try {
       isLoading = true;
+      isfailed = false;
       notifyListeners();
 
       final startDate = DateTime.now().subtract(const Duration(days: 15));
@@ -31,8 +33,10 @@ class ApodProvider extends ChangeNotifier {
           await _fetchApodUseCase.fetchApodList(FetchApodUseCaseParams(startDate: startDate, endDate: endDate));
       _apodList = sortApodList(apodList);
       isLoading = false;
+      isfailed = false;
     } catch (e) {
       isLoading = false;
+      isfailed = true;
     } finally {
       notifyListeners();
     }

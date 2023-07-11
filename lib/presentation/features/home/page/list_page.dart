@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_workshop/core/constants/text_constants.dart';
 import 'package:nasa_workshop/core/di_container.dart';
+import 'package:nasa_workshop/core/theme/app_colors.dart';
 import 'package:nasa_workshop/core/widgets/pendings/loading_indicator_widget.dart';
 import 'package:nasa_workshop/core/widgets/pendings/loading_linear_indicator_widget.dart';
 import 'package:nasa_workshop/domain/usecases/fetch_apod_usecase.dart';
@@ -40,10 +41,19 @@ class ListPageState extends State<ListPage> {
       builder: (context, child) {
         return Scaffold(
           appBar: AppBar(
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back_ios, color: AppColors.gris2),
+              onPressed: () {
+                _apodProvider.isLoading ? null : Navigator.of(context).pop();
+              },
+            ),
             title: const Text(TextConstants.listScreenLabel),
           ),
           body: Consumer<ApodProvider>(
             builder: (_, provider, __) {
+              if (provider.isfailed) {
+                return const Center(child: Text(TextConstants.fetchingDataErrorLabel));
+              }
               return provider.isLoading ? const LoadingIndicatorWidget() : _buildApodList(provider);
             },
           ),
