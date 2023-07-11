@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:nasa_workshop/core/constants/text_constants.dart';
+import 'package:nasa_workshop/core/di_container.dart';
 import 'package:nasa_workshop/core/widgets/pendings/loading_indicator_widget.dart';
 import 'package:nasa_workshop/core/widgets/pendings/loading_linear_indicator_widget.dart';
 import 'package:nasa_workshop/domain/usecases/fetch_apod_usecase.dart';
 import 'package:nasa_workshop/presentation/features/home/page/details_page.dart';
 import 'package:nasa_workshop/presentation/features/home/providers/apod_provider.dart';
 import 'package:nasa_workshop/presentation/features/home/widgets/custom_list_tile.dart';
-import 'package:nasa_workshop/utils/di_container.dart';
 import 'package:provider/provider.dart';
 
 class ListPage extends StatefulWidget {

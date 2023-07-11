@@ -40,16 +40,10 @@ class DetailsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    apod.title,
-                    style: AppTextStyles.titleDetail,
-                  ),
+                  Text(apod.title, style: AppTextStyles.titleDetail),
                   AppGaps.s01,
                   if (apod.mediaType == MediaType.video) AppGaps.s01,
-                  Text(
-                    apod.formattedDate,
-                    style: AppTextStyles.dateDetail,
-                  ),
+                  Text(apod.formattedDate, style: AppTextStyles.dateDetail),
                   AppGaps.s02,
                   Text(apod.explanation, style: AppTextStyles.descriptionDetail),
                 ],
