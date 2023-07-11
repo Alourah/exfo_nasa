@@ -1,14 +1,12 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_workshop/core/constants/text_constants.dart';
 import 'package:nasa_workshop/core/widgets/pendings/loading_indicator_widget.dart';
 import 'package:nasa_workshop/core/widgets/pendings/loading_linear_indicator_widget.dart';
-import 'package:nasa_workshop/data/repository/apod_service_impl.dart';
-import 'package:nasa_workshop/domain/repository/apod_service.dart';
 import 'package:nasa_workshop/domain/usecases/fetch_apod_usecase.dart';
 import 'package:nasa_workshop/presentation/features/home/page/details_page.dart';
 import 'package:nasa_workshop/presentation/features/home/providers/apod_provider.dart';
 import 'package:nasa_workshop/presentation/features/home/widgets/custom_list_tile.dart';
+import 'package:nasa_workshop/utils/di_container.dart';
 import 'package:provider/provider.dart';
 
 class ListPage extends StatefulWidget {
@@ -24,8 +22,7 @@ class ListPageState extends State<ListPage> {
   @override
   void initState() {
     super.initState();
-    final ApodService apodService = ApodServiceImpl(Dio());
-    _apodProvider = ApodProvider(FetchApodUseCase(apodService));
+    _apodProvider = ApodProvider(getIt<FetchApodUseCase>());
     _apodProvider.fetchApodData();
     _apodProvider.scrollController.addListener(_apodProvider.scrollListener);
   }
@@ -58,7 +55,7 @@ class ListPageState extends State<ListPage> {
   Widget _buildApodList(ApodProvider provider) {
     return ListView.builder(
       controller: provider.scrollController,
-      itemCount: provider.apodList.length + 1,
+      itemCount: provider.apodList.length + (provider.isFetchingMore ? 1 : 0),
       itemBuilder: (context, index) {
         if (index < provider.apodList.length) {
           final apod = provider.apodList[index];

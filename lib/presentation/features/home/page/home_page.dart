@@ -3,6 +3,7 @@ import 'package:nasa_workshop/core/constants/text_constants.dart';
 import 'package:nasa_workshop/core/resources/images.dart';
 import 'package:nasa_workshop/core/theme/app_colors.dart';
 import 'package:nasa_workshop/core/theme/app_gaps.dart';
+import 'package:nasa_workshop/core/theme/app_text_style.dart';
 import 'package:nasa_workshop/presentation/features/home/page/list_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -34,14 +35,7 @@ class HomePage extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
               ),
-              child: const Text(
-                TextConstants.startButtonLabel,
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
+              child: const Text(TextConstants.startButtonLabel, style: AppTextStyles.boldButton),
             ),
           ],
         ),

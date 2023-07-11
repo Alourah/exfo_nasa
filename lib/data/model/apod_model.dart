@@ -1,6 +1,9 @@
 import 'package:intl/intl.dart';
+import 'package:mockito/mockito.dart';
 
 enum MediaType { image, video }
+
+class MockApodModel extends Mock implements ApodModel {}
 
 class ApodModel {
   ApodModel({

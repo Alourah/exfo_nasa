@@ -4,10 +4,10 @@ import 'package:nasa_workshop/domain/repository/apod_service.dart';
 
 class FetchApodUseCase {
   FetchApodUseCase(this._apodService);
+
   final ApodService _apodService;
 
   Future<List<ApodModel>> fetchApodList(FetchApodUseCaseParams params) async {
-    //TODO: not try catch , return one line
     try {
       return await _apodService.getRangeOfApod(params.startDate, params.endDate);
     } catch (error) {
@@ -17,7 +17,8 @@ class FetchApodUseCase {
 }
 
 class FetchApodUseCaseParams {
-  FetchApodUseCaseParams({required this.endDate, required this.startDate});
-  DateTime startDate;
-  DateTime endDate;
+  final DateTime startDate;
+  final DateTime endDate;
+
+  FetchApodUseCaseParams({required this.startDate, required this.endDate});
 }

@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:nasa_workshop/core/constants/padding_constants.dart';
 import 'package:nasa_workshop/core/theme/app_gaps.dart';
+import 'package:nasa_workshop/core/theme/app_text_style.dart';
 import 'package:nasa_workshop/data/model/apod_model.dart';
 import 'package:nasa_workshop/presentation/features/home/widgets/video_header.dart';
 
@@ -41,16 +42,16 @@ class DetailsPage extends StatelessWidget {
                 children: [
                   Text(
                     apod.title,
-                    style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: AppTextStyles.titleDetail,
                   ),
                   AppGaps.s01,
                   if (apod.mediaType == MediaType.video) AppGaps.s01,
                   Text(
                     apod.formattedDate,
-                    style: const TextStyle(fontSize: 16, color: Colors.grey),
+                    style: AppTextStyles.dateDetail,
                   ),
                   AppGaps.s02,
-                  Text(apod.explanation, style: const TextStyle(fontSize: 18)),
+                  Text(apod.explanation, style: AppTextStyles.descriptionDetail),
                 ],
               ),
             ),

@@ -44,6 +44,7 @@ dependencies:
   mockito: ^5.4.2
   build_runner: ^2.4.6
   gap: ^3.0.1
+  get_it: ^7.6.0
   connectivity_plus: ^4.0.1
 
 dev_dependencies:

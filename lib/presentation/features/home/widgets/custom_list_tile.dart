@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nasa_workshop/core/resources/images.dart';
 import 'package:nasa_workshop/core/theme/app_colors.dart';
 import 'package:nasa_workshop/core/theme/app_gaps.dart';
+import 'package:nasa_workshop/core/theme/app_text_style.dart';
 
 class CustomListTile extends StatelessWidget {
   final String title;
@@ -27,14 +28,10 @@ class CustomListTile extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: const TextStyle(color: AppColors.mauveGris4, fontSize: 16, fontWeight: FontWeight.bold),
+        style: AppTextStyles.titleTile,
+        overflow: TextOverflow.clip,
       ),
-      subtitle: Text(
-        description,
-        maxLines: 2,
-        overflow: TextOverflow.ellipsis,
-        style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-      ),
+      subtitle: Text(description, maxLines: 2, overflow: TextOverflow.ellipsis, style: AppTextStyles.descriptionTile),
       leading: CircleAvatar(
         radius: 25,
         child: ClipOval(child: _tileImage()),
@@ -43,7 +40,7 @@ class CustomListTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Text(formattedDate, style: const TextStyle(fontSize: 12, color: AppColors.gris4)),
+          Text(formattedDate, style: AppTextStyles.dateTile),
           AppGaps.s00,
           const Icon(Icons.navigate_next, color: AppColors.gris4),
         ],
