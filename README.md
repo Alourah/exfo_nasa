@@ -17,17 +17,29 @@ Dependencies
 The project has the following dependencies:
 
 Flutter SDK: Required version is >=3.0.3 <4.0.0
+
 cupertino_icons version ^1.0.2
+
 intl version ^0.18.1
+
 dio version ^5.2.1+1
+
 cached_network_image version ^3.2.3
+
 url_launcher version ^6.1.11
+
 path_provider version ^2.0.15
+
 provider version ^6.0.5
+
 mockito version ^5.4.2
+
 build_runner version ^2.4.6
+
 gap version ^3.0.1
+
 get_it version ^7.6.0
+
 connectivity_plus version ^4.0.1
 
 Note:
